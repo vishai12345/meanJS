@@ -1,0 +1,20 @@
+<h1 md-dialog-title class="primary-color">{{data.title}}</h1>
+<md-dialog-content class="accent-color">
+  <h4>{{data.body}}</h4>
+</md-dialog-content>
+<br>
+<md-dialog-actions>
+
+  <div class="example-container">
+    <div class="example-button-row">
+      <button md-raised-button color="primary" [md-dialog-close]="false">
+        Close
+      </button>
+
+      <button md-raised-button color="primary" [md-dialog-close]="data.returnData">
+        {{data.buttonText}}
+      </button>
+    </div>
+  </div>
+
+</md-dialog-actions>

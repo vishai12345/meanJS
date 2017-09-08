@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<toaster-container [toasterconfig]="config1"></toaster-container>
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1><span class="fa fa-sign-in"></span> Update</h1>
+    <form (submit)="onSubmitProfile()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" value="{{email}}" [(ngModel)]="email" id="email"  name="email" placeholder="Enter E-mail">
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile</label>
+        <input type="mobile" class="form-control" value="{{mobile}}" [(ngModel)]="mobile" name="mobile" id="mobile" placeholder="Enter Mobile">
+      </div>
+      <button type="submit" md-raised-button color="primary">Update Profile!</button>
+      <button type="button" [routerLink] = "['/profile']" md-raised-button color="primary"> Bact to profile</button>
+    </form>
+  </div>
+</div>

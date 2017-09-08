@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="page-header text-center">
+    <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+  </div>
+  <div class="row">
+    <!-- LOCAL INFORMATION -->
+    <div class="col-sm-3">
+        <div class="card">
+          <div class="container1">
+            <img src="{{img_src}}" alt="Avatar" class="image" style="width:100%">
+          </div>
+          <div class="container">
+            <p><b>{{email}}</b></p>
+            <p>{{mobile}}</p>
+            <p>{{id}}</p>
+            <p>{{usertype}}</p>
+            <h4><a [routerLink] = "['/edit-profile']"><span class="fa fa-edit"> Edit</span></a></h4>
+          </div>
+          <div class="text-center">
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="file" class="form-control" name="photo" ng2FileSelect [uploader]="uploader" />
+      </div>
+      <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+        Upload
+      </button>
+    </div>
+  </div>
+</div>
+

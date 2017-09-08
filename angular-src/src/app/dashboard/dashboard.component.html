@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+<br>
+<div class="col-md-6 col-md-offset-3">
+  <flash-messages></flash-messages>
+</div>
+
+<main class="col-md-10 col-md-offset-1">
+  <h1>Dashboard</h1>
+  <section class="row text-center placeholders" *ngIf="forAdmin">
+    <div class="col-6 col-sm-3 placeholder">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+      <h4><div class="text-muted">Pending Bookings</div></h4>
+    </div>
+    <div class="col-6 col-sm-3 placeholder">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+      <h4><span class="text-muted">Quoted Bookings</span></h4>
+    </div>
+    <div class="col-6 col-sm-3 placeholder">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+      <h4><span class="text-muted">Booked Bookings</span></h4>
+    </div>
+    <div class="col-6 col-sm-3 placeholder">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+      <h4><span class="text-muted">Served Bookings</span></h4>
+    </div>
+  </section>
+
+  <h2>Booking</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th><a href="javascript:void(0)" (click)="getBookingByStatus(0)">All</a></th>
+      <th><a href="javascript:void(0)" (click)="getBookingByStatus(1)">Pending</a></th>
+      <th><a href="javascript:void(0)" (click)="getBookingByStatus(2)">Quoted</a></th>
+      <th><a href="javascript:void(0)" (click)="getBookingByStatus(3)">Booked</a></th>
+      <th><a href="javascript:void(0)" (click)="getBookingByStatus(4)">Completed</a></th>
+      <th><a href="javascript:void(0)" (click)="getBookingByStatus(5)">Cancelled</a></th>
+    </tr>
+    </thead>
+  </table>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>status</th>
+        <th>adress</th>
+        <th>zipcode_id</th>
+        <th>date</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let booking of bookingList">
+        <td>{{booking.status}}</td>
+        <td>{{booking.adress}}</td>
+        <td>{{booking.zipcode_id}}</td>
+        <td>{{booking.booked_date}}</td>
+        <td>
+          <button (click)="openViewDialog(booking)" md-raised-button color="primary">View</button>
+          <button (click)="openDialog(booking._id)" md-raised-button color="primary" *ngIf="!(booking.status == 5 || booking.status == 3 || booking.status == 4)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<div class="modal fade" id="myModal" role="dialog" data-toggle="modal" data-target="#myModal">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cancel Booking</h4>
+      </div>
+      <div class="modal-body">
+        <p id="myText">Are you sure to want to cancel this booking ?</p>
+      </div>
+      <div class="modal-footer">
+        <button md-raised-button color="primary" data-dismiss="modal">Close</button>
+        <button md-raised-button color="primary" data-dismiss="modal" (click)="onDelete(bookingId)">Cancel Booking</button>
+      </div>
+    </div>
+
+  </div>
+</div>

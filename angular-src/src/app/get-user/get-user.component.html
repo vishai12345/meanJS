@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<toaster-container [toasterconfig]="config1"></toaster-container>
+<div class="container">
+    <div class="col-md-12">
+      <h4>Actiavte Users</h4>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Action</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let me of activateUsers">
+          <td>{{me.email}}</td>
+          <td>{{me.mobile}}</td>
+          <td><a  href="javascript:void(0);" (click)="editUser(me)"><span class="fa fa-edit"></span></a> |
+            <a (click)="openDialog(me)" href="javascript:void(0);"><span class="fa fa-trash-o"></span></a></td>
+          <td><button title="click To {{ me.isVerified ? 'Deactivate' : 'Activate' }}" (click)="changeStatus(me)" md-raised-button color="primary">{{ me.isVerified ? 'Activate' : 'Deactivate' }}</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="text-center"><p *ngIf="activeUser" >No data</p></div>
+    </div>
+
+    <div class="col-md-12">
+      <h4>Deactiavte Users</h4>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Action</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let me of deActivateUsers">
+          <td>{{me.email}}</td>
+          <td>{{me.mobile}}</td>
+          <td><a  href="javascript:void(0);" (click)="editUser(me)"><span class="fa fa-edit"></span></a> |
+            <a (click)="getuser(me)" data-toggle="modal" data-target="#myModal" href="javascript:void(0);"><span class="fa fa-trash-o"></span></a></td>
+          <td><button title="click To {{ me.isVerified ? 'Deactivate' : 'Activate' }}" (click)="changeStatus(me)" md-raised-button color="primary">{{ me.isVerified ? 'Activate' : 'Deactivate' }}</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="text-center"><p *ngIf="deActiveUser">No data</p></div>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+<h1 md-dialog-title class="primary-color">Edit : {{data.user_email}}</h1>
+<md-dialog-content class="accent-color">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" [(ngModel)]="data.user_email" id="email" placeholder="Enter E-mail">
+  </div>
+  <div class="form-group">
+    <label for="mobile">Mobile</label>
+    <input type="text" class="form-control" [(ngModel)]="data.user_mobile" id="mobile" placeholder="Enter Mobile">
+  </div>
+  <input type="hidden" [(ngModel)]="data.user_id">
+</md-dialog-content>
+<md-dialog-actions>
+
+  <div class="example-container">
+    <div class="example-button-row">
+      <button md-raised-button color="primary" [md-dialog-close]="false">
+        Close
+      </button>
+
+      <button md-raised-button color="primary" [md-dialog-close]="data">
+        Submit
+      </button>
+    </div>
+  </div>
+
+</md-dialog-actions>

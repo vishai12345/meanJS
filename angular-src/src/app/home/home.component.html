@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="container" *ngIf="isUserName && status">
+  <div class="input-group">
+    <input type="text" [(ngModel)]="userName"  class="form-control input-lg">
+    <div class="input-group-btn">
+      <button class="btn btn-default btn-lg" (click)="setUserName()" type="submit"><i class="glyphicon glyphicon-send"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="(isUserName === false) && status">
+  <h3>Open chat to all : Hello {{userName.name}}</h3>
+  <div class="col-md-3" style="height: 400px;overflow: auto">
+    <div class="list-group">
+      <a href="#" class="list-group-item active typing_global" (click)="getGlobalMessage('global')">Group chat</a>
+      <a href="#" class="list-group-item typing_{{name}} {{(name == userName.name)?'hidden':''}}" (click)="(name == userName.name)?'':privateChat(name)"  *ngFor="let name of totalUser">{{name}}</a>
+    </div>
+  </div>
+
+  <div class="well" style="height: 400px;overflow: auto">
+      <span *ngFor="let message of messages" class="text-success">
+        <span>{{(message.text.user.name == userName.name)? 'Me' : message.text.user.name }}</span>
+        <br>
+        <span style="padding-left:15px;">
+          -> {{message.text.message}}
+        </span>
+        <br>
+      </span>
+  </div>
+
+  <div class="form-group col-md-9 col-md-offset-3">
+    <div class="input-group">
+      <input type="text" [(ngModel)]="message" (blur)="stopTyping()" (focus)="userTyping()" class="form-control input-lg focusedInput">
+      <div class="input-group-btn">
+        <button #fileInput class="btn btn-default btn-lg downClick" (click)="sendMessage()" type="submit"><i class="glyphicon glyphicon-send"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

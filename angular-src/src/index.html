@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <style>
+    body        { padding-top:80px; word-wrap:break-word; }
+    button      {border-radius: 0px !important;}
+
+    .form-control{
+      border-radius: 0px !important;
+    }
+
+    .modal-content{
+      border-radius: 0px !important;
+    }
+
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Node & Angular</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css"
+        href="https://npmcdn.com/angular2-toaster@3.0.1/toaster.css" />
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://markusslima.github.io/bootstrap-filestyle/js/bootstrap-filestyle.min.js"></script>
+
+<script>
+  var scrolled=0;
+  $(document).on("click" ,"button.downClick",function(){
+    scrolled=scrolled+300;
+
+    $(".well").animate({
+      scrollTop:  scrolled
+    }, 'slow');
+  });
+
+  $(document).keypress(function(e) {
+    if(e.which == 13) {
+      if($('.focusedInput').is(":focus")){
+        $('.downClick').trigger('click');
+      }
+    }
+  });
+</script>
+</html>

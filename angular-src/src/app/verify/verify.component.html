@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<br>
+<div class="col-md-6 col-md-offset-3">
+  <flash-messages></flash-messages>
+</div>
+<div class="container">
+  <div class="col-sm-6 col-sm-offset-3">
+
+    <h1>Verify your Account</h1>
+
+    <!-- LOGIN FORM -->
+    <form (submit) = "submitVerify()">
+      <div class="form-group">
+        <label>Verification Code</label>
+        <input placeholder="Enter code" type="text" class="form-control" [(ngModel)]="verification_code" name="verification_code">
+      </div>
+      <button type="submit" md-raised-button color="primary">Submit Code</button>
+    </form>
+  </div>
+
+</div>

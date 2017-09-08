@@ -1,0 +1,35 @@
+<h1 md-dialog-title class="primary-color">{{data.title}}</h1>
+<md-dialog-content class="accent-color">
+  <md-card>
+    <div class="col-md-4"><strong>User</strong></div>
+    <div class="col-md-8">{{data.returnData.user_id}}</div>
+  </md-card>
+  <md-card>
+    <div class="col-md-4"><strong>Status</strong></div>
+    <div class="col-md-8">{{data.returnData.status}}</div>
+  </md-card>
+  <md-card>
+    <div class="col-md-4"><strong>ZipCode</strong></div>
+    <div class="col-md-8">{{data.returnData.zipcode_id}}</div>
+  </md-card>
+  <md-card>
+    <div class="col-md-4"><strong>Booked date</strong></div>
+    <div class="col-md-8">{{data.returnData.booked_date}}</div>
+  </md-card>
+  <md-card>
+    <div class="col-md-4"><strong>Description</strong></div>
+    <div class="col-md-8">{{data.returnData.custom_description}}</div>
+  </md-card>
+</md-dialog-content>
+
+<div class="pull-right">
+  <md-dialog-actions>
+    <div class="example-container">
+      <div class="example-button-row">
+        <button md-raised-button color="primary" [md-dialog-close]="false">
+          Close
+        </button>
+      </div>
+    </div>
+  </md-dialog-actions>
+</div>
